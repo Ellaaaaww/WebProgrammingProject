@@ -10,6 +10,7 @@ div.footer
     text-align: center;
     color: #707070;
     position: relative;
+    display: block;
 }
 
 h3.footer
@@ -18,3 +19,8 @@ h3.footer
     text-align: center;
     color : Gray;    
 };
+
+div.copyrightText
+{
+    font-size: 11px;
+}
