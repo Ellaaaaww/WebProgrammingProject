@@ -1,8 +1,11 @@
-body {
-    font-family: Georgia, Times, serif;
-    color: purple;
-    background-color: #d8da3d
+div.footer
+{
+    background-color: black;
+    color : Gray;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 15px;
 }
-h1 {
-    font-family: Helvetica, Arial
-}
+h3
+{
+    font-style: italic ;
+};
