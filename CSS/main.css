@@ -1,7 +1,39 @@
 body
 {
-    background-color: #754C30;
+    background-color: #2A4100;
 }
+
+h2.titlePicture
+{
+    font-size: 100px;
+    position: absolute;
+    color: white;
+    bottom: 100px;
+    left: 13%;
+    
+}
+div.textTitlePicture
+{
+    font-size: 13px;
+    position: absolute;
+    color: white;
+    bottom: 90px;
+    left: 13%;
+}
+img.menuPicture
+{
+    margin: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height:"20%";
+    width:"80%";
+}
+
+
+
+
+
 div.footer
 {
     background-color: black;
