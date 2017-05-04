@@ -9,3 +9,11 @@ h3
 {
     font-style: italic ;
 };
+div.alignCentre
+{
+    text-align: center;
+};
+h3.alignCentre
+{
+    text-align: center;
+};
