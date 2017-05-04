@@ -1,3 +1,7 @@
+body
+{
+    background-color: #754C30;
+}
 div.footer
 {
     background-color: black;
@@ -6,8 +10,6 @@ div.footer
     font-size: 15px;
     text-align: center;
     color: #707070;
-    position: relative;
-    display: block;
     padding-bottom:  10px;
 }
 
