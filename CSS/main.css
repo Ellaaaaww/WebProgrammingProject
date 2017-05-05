@@ -10,7 +10,7 @@ h2.titlePicture
     color: white;
     bottom: 100px;
     left: 13%;
-    
+
 }
 div.textTitlePicture
 {
@@ -34,7 +34,7 @@ div.centerText
 {
     color: white;
     text-align: center;
-    
+
 }
 
 
@@ -60,7 +60,7 @@ h3.footer
 {
     font-style: italic ;
     text-align: center;
-    color : Gray;    
+    color : Gray;
 };
 
 div.copyrightText
