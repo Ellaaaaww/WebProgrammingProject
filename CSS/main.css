@@ -33,14 +33,20 @@ img.menuPicture
 div.centerText
 {
     background-color: white;
+    
 }
 
 
-
+h1.namePage
+{
+    text-align: center;
+    color : white;
+        font-family: "Times New Roman", Times, serif;
+}
 div.footer
 {
     background-color: black;
-
+    margin: 20px;
     font-family: "Times New Roman", Times, serif;
     font-size: 15px;
     text-align: center;
