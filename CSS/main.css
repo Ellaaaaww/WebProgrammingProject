@@ -2,6 +2,10 @@ body
 {
     background-color: #301500;
 }
+label
+{
+    color: white;
+}
 
 h2.titlePicture
 {
