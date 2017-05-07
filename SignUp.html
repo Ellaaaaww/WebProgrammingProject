@@ -21,6 +21,24 @@
          <form name = "formSign" action = "#">
             <div class="row">
                <div class="col-md-2 col-md-offset-5">
+                  <input type="text" class="form-control" placeholder="Name" required="required" name = "Name">
+               </div>
+            </div>
+            <br />
+            <div class="row">
+               <div class="col-md-2 col-md-offset-5">
+                  <input type="text" class="form-control" placeholder="Surname" required="required" name = "Surname">
+               </div>
+            </div>
+            <br />
+            <div class="row">
+               <div class="col-md-2 col-md-offset-5">
+                  <input type="text" class="form-control" placeholder="Phone number" required="required" name = "Phone">
+               </div>
+            </div>
+            <br />
+            <div class="row">
+               <div class="col-md-2 col-md-offset-5">
                   <input type="text" class="form-control" placeholder="Login" required="required" id="Login">
                </div>
             </div>
@@ -47,6 +65,7 @@
                   <button type="button" class="btn btn-default navbar-btn" onclick="CheckPassword(document.formSign.Password,document.formSign.ConfirmPassword)">Submit</button>
                </div>
             </div>
+
          </form>
       </div>
       <!--End Core -->
