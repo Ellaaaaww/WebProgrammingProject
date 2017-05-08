@@ -38,7 +38,6 @@ div.centerText
 {
     color: white;
     text-align: center;
-
 }
 
 
@@ -46,7 +45,7 @@ h1.namePage
 {
     text-align: center;
     color : white;
-        font-family: "Times New Roman", Times, serif;
+    font-family: "Times New Roman", Times, serif;
 }
 footer
 {
