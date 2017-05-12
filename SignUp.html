@@ -64,7 +64,7 @@
       <!--End header-->      <!--Begin Core -->
       <div class="row">
          <h1 class="namePage">New User</h1>
-         <form name = "formSign" action = "#">
+         <form name = "formSign" action = "SignUp.php" method = "POST">
             <div class="row">
                <div class="col-md-2 col-md-offset-5">
                   <input type="text" class="form-control" placeholder="Name" required="required" name = "Name">
@@ -85,7 +85,7 @@
             <br />
             <div class="row">
                <div class="col-md-2 col-md-offset-5">
-                  <input type="text" class="form-control" placeholder="Login" required="required" id="Login">
+                  <input type="text" class="form-control" placeholder="Login" required="required" name="Login">
                </div>
             </div>
             <br />
@@ -108,7 +108,7 @@
             </div>
             <div class="row">
                <div class="col-md-1 col-md-offset-5">
-                  <button type="button" class="btn btn-default navbar-btn" onclick="CheckPassword(document.formSign.Password,document.formSign.ConfirmPassword)">Submit</button>
+                  <button type="submit" class="btn btn-default navbar-btn" onclick="CheckPassword(document.formSign.Password,document.formSign.ConfirmPassword)">Submit</button>
                </div>
             </div>
          </form>
