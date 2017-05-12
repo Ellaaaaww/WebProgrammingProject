@@ -34,7 +34,11 @@ INSERT INTO `users`(`id`, `Name`, `Surname`, `Phone`, `Login`, `Password`, `Emai
 INSERT INTO `users`(`id`, `Name`, `Surname`, `Phone`, `Login`, `Password`, `Email`, `Admin`) VALUES (NULL,"Clement","Simon","0600000001","CSim","456","c.sim@teatime.com",true)
 
     --insertion des utilisateurs normaux
-    
+
 INSERT INTO `users`(`id`, `Name`, `Surname`, `Phone`, `Login`, `Password`, `Email`, `Admin`) VALUES (NULL,"Jean","Onche","0600000002","J_onche","789","jonche@jvc.com",false)
 
+-- Script d'insertion de donnees dans la table produits
 
+INSERT INTO `product`(`id`, `name`, `link`, `price`, `stock`) VALUES (NULL,"ceylan_tea","CSS/theOne.jpg",15,100)
+INSERT INTO `product`(`id`, `name`, `link`, `price`, `stock`) VALUES (NULL,"white_tea","CSS/theTwo",15,100)
+INSERT INTO `product`(`id`, `name`, `link`, `price`, `stock`) VALUES (NULL,"jasmin_tea","CSS/theThree",15,100)
