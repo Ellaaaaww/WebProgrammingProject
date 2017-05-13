@@ -10,6 +10,43 @@
       <script type = "text/javascript" src = "Javascript/scriptTest.js"></script>
       <title> Tea Time</title>
       <meta charset="utf-8">
+
+
+
+
+      <script type ="text/javascript">
+/*
+        $('SubmitButton').(function canConnect()
+        {
+          log = $('#Login').val();
+          pass = $('#Password').val();
+          alert ('log : ' + log);
+          $.ajax({
+            type :"POST",
+            url :"SignIn.php",
+            data : {login :  + log, password :  pass}, 
+            success : function(data)
+            {
+              if(data === false)
+              {
+                $('#errorConnect').show();
+              }
+            }
+          })
+        })
+
+        */
+      </script>
+
+
+
+
+
+
+
+
+
+
    </head>
    <body>
       <!--Begin header-->
@@ -63,24 +100,28 @@
       <!--End header-->
       <!--Begin core-->
       <div class="row">
+        <form action="javascript::canConnect()" method="POST">
          <h1 class="namePage">Connection</h1>
+         <br />
+         <h2 style ="color : red; display: none;" id ="errorConnect">Login ou mot de passe incorrect</h2>
          <div class="row">
             <div class="col-md-2 col-md-offset-5">
-               <input type="text" class="form-control" placeholder="Login">
+               <input type="text" class="form-control" placeholder="Login" id ="Login">
             </div>
          </div>
          <br />
          <div class="row">
             <div class="col-md-2 col-md-offset-5">
-               <input type="password" class="form-control" placeholder="Password">
+               <input type="password" class="form-control" placeholder="Password" id ="Password">
             </div>
          </div>
          <br />
          <div class="row">
             <div class="col-md-1 col-md-offset-5">
-               <button type="button" class="btn btn-default navbar-btn">Submit</button>
+               <input type="submit" class="btn btn-default navbar-btn" id ='SubmitButton'>
             </div>
          </div>
+         </form>
       </div>
       <!--End core-->
       <!-- Begin footer -->

@@ -18,13 +18,42 @@
     }
 
 
-
-
-
-    function getUserLogMdp($log, $mdp)
+    function getAllUsers()
     {
         $db = new PDO('mysql:host=localhost:3306;dbname=concordiaproject', 'root', '');
-        $stmt= $db->prepare();
+        $tabToReturn = array();
+        $req = "SELECT * FROM USERS" ;
+        foreach($db->query($req) as $row)
+        {
+            array_push($tabToReturn, $row);
+        }
+        return $tabToReturn;    
+    }
+
+
+    function getAllProducts()
+    {
+        $db = new PDO('mysql:host=localhost:3306;dbname=concordiaproject', 'root', '');
+        $tabToReturn = array();
+        $req = "SELECT * FROM PRODUCTS" ;
+        foreach($db->query($req) as $row)
+        {
+            array_push($tabToReturn, $row);
+        }
+        return $tabToReturn;    
+    }
+
+
+
+
+    function connect($log, $mdp)
+    {
+        $db = new PDO('mysql:host=localhost:3306;dbname=concordiaproject', 'root', '');
+        $stmt = $db->prepare("SELECT * FROM USERS WHERE ((Login = :log) and (Password = :ps))");
+        $stmt->binParam(':log', $log);
+        $stmt->binParam(':ps', $mdp);
+        $stmt->execute();
+        return $stmt->fetch();
     }
 
 
