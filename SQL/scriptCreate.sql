@@ -25,6 +25,19 @@ CREATE TABLE `product` (
  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1
 
+-- script création table paniers
+
+CREATE TABLE `baskets` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `idUser` int(11) NOT NULL,
+ `price` int(11) NOT NULL,
+ `payed` tinyint(1) NOT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+
+
+
 
 --Script d'insertion de donnee
     -- insertion des admins
@@ -42,3 +55,9 @@ INSERT INTO `users`(`id`, `Name`, `Surname`, `Phone`, `Login`, `Password`, `Emai
 INSERT INTO `product`(`id`, `name`, `link`, `price`, `stock`) VALUES (NULL,"ceylan_tea","CSS/theOne.jpg",15,100)
 INSERT INTO `product`(`id`, `name`, `link`, `price`, `stock`) VALUES (NULL,"white_tea","CSS/theTwo.jpg",15,100)
 INSERT INTO `product`(`id`, `name`, `link`, `price`, `stock`) VALUES (NULL,"jasmin_tea","CSS/theThree.jpg",15,100)
+
+
+--Script d'insertion du basket 
+
+INSERT INTO `baskets`(`id`, `idUser`, `price`, `payed`) VALUES (NULL,3,30,true);
+INSERT INTO `baskets`(`id`, `idUser`, `price`, `payed`) VALUES (NULL,3,45,false);

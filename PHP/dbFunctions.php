@@ -18,6 +18,16 @@
     }
 
 
+    function deleteUser($idUser)
+    {
+        $db = new PDO('mysql:host=localhost:3306;dbname=concordiaproject', 'root', '');
+        $stmt = $db->prepare("DELETE FROM users WHERE id = :idUse");
+
+        $stmt->bindParam(':idUse', $idUser);
+        $stmt->execute();
+    }
+
+
     function getAllUsers()
     {
         $db = new PDO('mysql:host=localhost:3306;dbname=concordiaproject', 'root', '');
@@ -42,6 +52,25 @@
         }
         return $tabToReturn;    
     }
+
+
+
+
+
+    function getAllBaskets()
+    {
+        $db = new PDO('mysql:host=localhost:3306;dbname=concordiaproject', 'root', '');
+        $tabToReturn = array();
+        $req = "SELECT * FROM BASKETS" ;
+        foreach($db->query($req) as $row)
+        {
+            array_push($tabToReturn, $row);
+        }
+        return $tabToReturn;    
+    }
+
+
+
 
 
 
@@ -98,12 +127,29 @@
         $stmt = $db->prepare('INSERT INTO `products`(`id`, `name`, `link`, `price`, `stock`) VALUES (NULL,"ceylan_tea","CSS/theOne.jpg",15,100)');
         $stmt->execute();
 
-        $stmt = $db->prepare('INSERT INTO `products`(`id`, `name`, `link`, `price`, `stock`) VALUES (NULL,"white_tea","CSS/theTwo",15,100)');
+        $stmt = $db->prepare('INSERT INTO `products`(`id`, `name`, `link`, `price`, `stock`) VALUES (NULL,"white_tea","CSS/theTwo.jpg",15,100)');
         $stmt->execute();
 
-        $stmt = $db->prepare('INSERT INTO `products`(`id`, `name`, `link`, `price`, `stock`) VALUES (NULL,"jasmin_tea","CSS/theThree",15,100)');
+        $stmt = $db->prepare('INSERT INTO `products`(`id`, `name`, `link`, `price`, `stock`) VALUES (NULL,"jasmin_tea","CSS/theThree.jpg",15,100)');
+        $stmt->execute();
+        $stmt= $db->prepare("DROP TABLE baskets");
+        $stmt->execute();
+        $stmt =$db->prepare("CREATE TABLE `baskets` (
+        `id` int(11) NOT NULL AUTO_INCREMENT,
+        `idUser` int(11) NOT NULL,
+        `price` int(11) NOT NULL,
+        `payed` tinyint(1) NOT NULL, 
+        PRIMARY KEY (`id`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=latin1
+        ");
+
+        
+        $stmt->execute();
+        $stmt = $db->prepare('INSERT INTO `baskets`(`id`, `idUser`, `price`, `payed`) VALUES (NULL,3,30,true);');
         $stmt->execute();
 
+        $stmt = $db->prepare('INSERT INTO `baskets`(`id`, `idUser`, `price`, `payed`) VALUES (NULL,3,45,false);');
+        $stmt->execute();
 
     }
 

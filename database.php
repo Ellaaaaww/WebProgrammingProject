@@ -1,8 +1,6 @@
 <?php
     include("./PHP/dbFunctions.php");
 
-    //insertUser($_POST['Name'],$_POST['Surname'],$_POST['Phone'], $_POST['Login'],$_POST['Password'],$_POST['Phone']);
-    resetdb();
 
     function displayUsers()
     {
@@ -34,6 +32,9 @@
                 <td>
                     isAdmin
                 </td>
+                <td>
+                    Delete User
+                </td>
             </tr>
         
         
@@ -50,6 +51,10 @@
                 <td><?= $row['Password']?></td>
                 <td><?= $row['Email']?></td>
                 <td><?= $row['Admin']?></td>
+                <?php 
+                    $idUse = $row['id'];
+                    echo('<td><a href="SuppUser.php?id='.$idUse.'">Delete</a></td>'); 
+                ?>
             </tr>
             <?php
         }
@@ -107,18 +112,64 @@ function displayProducts()
     }
 
 
+    function displayBaskets()
+    {
+        $Users = getAllBaskets();
+ 
+        ?>
+        <table>
+            <tr>
+                <td>
+                    id
+                </td>
+                <td>
+                    idUser
+                </td>
+                <td>
+                    price
+                </td>
+                <td>
+                    payed
+                </td>              
+            </tr>
+        
+        
+        <?php
+        foreach($Users as $row)
+        {?>
+            
+            <tr>
+                <td><?= $row['id']?></td>
+                <td><?= $row['idUser']?></td>
+                <td><?= $row['price']?></td>
+                <td><?= $row['payed']?></td>
 
+            </tr>
+            <?php
+        }
+        ?>
+            </table>
+            <br />
+        <?php
+     
+    }
 
-
-    
 
 
 
 
     displayUsers();
+    ?>
+    <a href="SignUp.html"> Add a user </a> <br /><br /><br />
+    <?php
+    displayProducts();
+    ?>
+    <a href="addTea.html"> Add a tea </a> <br /><br /><br />
+    <?php
+    displayBaskets();
+
+
     
-    displayProducts()
 
 ?>
-
 
