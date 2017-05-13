@@ -1,6 +1,5 @@
 <?php
     include("./PHP/dbFunctions.php");
-    var_dump($_GET);
     $idUser = $_GET['id'];
     deleteUser($idUser);
 ?>
@@ -71,7 +70,9 @@
       <!--End header-->      <!--Begin Core -->
       <div class="row">
          <h1 class="namePage">The user has been deleted</h1>
-         <a href="database.php">Return to the database administration system</a>
+         <div class="row" style ="text-align: center;">
+          <a href="database.php" >Return to the database administration system</a>
+          </div>
       </div>
       <!--End Core -->
       <!-- Begin footer -->

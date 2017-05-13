@@ -1,3 +1,9 @@
+<?php
+    include("./PHP/dbFunctions.php");
+    $idProduct = $_GET['id'];
+    deleteProduct($idProduct);
+?>
+
 <!DOCTYPE html>
 <html>
    <head>
@@ -7,7 +13,7 @@
       <link rel="stylesheet" type="text/css" href ="CSS/main.css">
       <link rel ="icon" href="CSS/image_projet/newFavi.png">
       <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src = "Javascript/formcontrol.js"></script>
+      <script src = "Javascript/formcontrol.js"></script>
       <script type = "text/javascript" src = "Javascript/scriptTest.js"></script>
       <title> Tea Time</title>
       <meta charset="utf-8">
@@ -63,55 +69,10 @@
     </header>
       <!--End header-->      <!--Begin Core -->
       <div class="row">
-         <h1 class="namePage">New User</h1>
-         <form name = "formSign" action = "SignUp.php" method = "POST">
-            <div class="row">
-               <div class="col-md-2 col-md-offset-5">
-                  <input type="text" class="form-control" placeholder="Name" required="required" name = "Name">
-               </div>
-            </div>
-            <br />
-            <div class="row">
-               <div class="col-md-2 col-md-offset-5">
-                  <input type="text" class="form-control" placeholder="Surname" required="required" name = "Surname">
-               </div>
-            </div>
-            <br />
-            <div class="row">
-               <div class="col-md-2 col-md-offset-5">
-                  <input type="text" class="form-control" placeholder="Phone number" required="required" name = "Phone">
-               </div>
-            </div>
-            <br />
-            <div class="row">
-               <div class="col-md-2 col-md-offset-5">
-                  <input type="text" class="form-control" placeholder="Login" required="required" name="Login">
-               </div>
-            </div>
-            <br />
-            <div class="row">
-               <div class="col-md-2 col-md-offset-5">
-                  <input type="password" class="form-control" placeholder="Enter your password" required="required" name="Password">
-               </div>
-            </div>
-            <br />
-            <div class="row">
-               <div class="col-md-2 col-md-offset-5">
-                  <input type="password" class="form-control" placeholder="Confirm password" required="required" name="ConfirmPassword">
-               </div>
-            </div>
-            <br />
-            <div class="row">
-               <div class="col-md-2 col-md-offset-5">
-                  <input type="text" class="form-control" placeholder="E-mail address" required="required" name = "Email">
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-md-1 col-md-offset-5">
-                  <button type="submit" class="btn btn-default navbar-btn" onclick="CheckPassword(document.formSign.Password,document.formSign.ConfirmPassword)">Submit</button>
-               </div>
-            </div>
-         </form>
+         <h1 class="namePage">The product has been deleted</h1>
+         <div class="row" style ="text-align: center;">
+          <a href="database.php" >Return to the database administration system</a>
+          </div>
       </div>
       <!--End Core -->
       <!-- Begin footer -->

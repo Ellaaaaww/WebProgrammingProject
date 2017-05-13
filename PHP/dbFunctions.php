@@ -54,6 +54,16 @@
     }
 
 
+    function deleteProduct($idProduct)
+    {
+        $db = new PDO('mysql:host=localhost:3306;dbname=concordiaproject', 'root', '');
+        $stmt = $db->prepare("DELETE FROM products WHERE id = :idProd");
+
+        $stmt->bindParam(':idProd', $idProduct);
+        $stmt->execute();        
+    }
+
+
 
 
 
