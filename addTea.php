@@ -8,5 +8,6 @@
     else
     {
         insertProduct($_POST["Name"], $_POST["Link"], $_POST["Price"], $_POST["Stock"]);
+        include("addProduct.html");
     }
 ?>
