@@ -16,14 +16,15 @@ CREATE TABLE `users` (
 --Script création table produits
 
 
-CREATE TABLE `product` (
+CREATE TABLE `products` (
  `id` int(11) NOT NULL AUTO_INCREMENT,
  `name` varchar(50) NOT NULL,
  `link` varchar(50) NOT NULL,
  `price` int(11) NOT NULL,
  `stock` int(11) NOT NULL,
+ `Description` text NOT NULL,
  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1
 
 -- script création table paniers
 
@@ -52,9 +53,9 @@ INSERT INTO `users`(`id`, `Name`, `Surname`, `Phone`, `Login`, `Password`, `Emai
 
 -- Script d'insertion de donnees dans la table produits
 
-INSERT INTO `product`(`id`, `name`, `link`, `price`, `stock`) VALUES (NULL,"ceylan_tea","CSS/theOne.jpg",15,100)
-INSERT INTO `product`(`id`, `name`, `link`, `price`, `stock`) VALUES (NULL,"white_tea","CSS/theTwo.jpg",15,100)
-INSERT INTO `product`(`id`, `name`, `link`, `price`, `stock`) VALUES (NULL,"jasmin_tea","CSS/theThree.jpg",15,100)
+INSERT INTO `products`(`id`, `name`, `link`, `price`, `stock`, `Description`) VALUES (NULL,"ceylan_tea","CSS/theOne.jpg",15,100,"This is a stong aroma of ceylan tea")
+INSERT INTO `products`(`id`, `name`, `link`, `price`, `stock`, `Description`) VALUES (NULL,"white_tea","CSS/theTwo.jpg",15,100,"This is a light white tea")
+INSERT INTO `products`(`id`, `name`, `link`, `price`, `stock`, `Description`) VALUES (NULL,"jasmin_tea","CSS/theThree.jpg",15,100,"This is a stong jasmin tea")
 
 
 --Script d'insertion du basket 
