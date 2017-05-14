@@ -18,6 +18,20 @@
     }
 
 
+
+
+    function insertProduct($name, $link, $price, $stock )
+    {
+        $db = new PDO('mysql:host=localhost:3306;dbname=concordiaproject', 'root', '');
+        $stmt = $db->prepare("INSERT INTO `products`(`id`, `name`, `link`, `price`, `stock`) VALUES (NULL,:name,:link,:price,:stock)");
+        $stmt->bindParam(':name', $name);
+        $stmt->bindParam(':link', $link);
+        $stmt->bindParam(':price', $price);
+        $stmt->bindParam(':stock', $stock);
+        $stmt->execute();
+    }
+
+
     function deleteUser($idUser)
     {
         $db = new PDO('mysql:host=localhost:3306;dbname=concordiaproject', 'root', '');
