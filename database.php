@@ -65,7 +65,7 @@
       <div class="row">
          <div class="container-fluid">
             <h1 class="namePage">DB Admin</h1>
-            <div class="col-md-8 col-md-offset-4">
+            <div class="col-md-4 col-md-offset-4" style="background-color : white;">
                <?php
                   include("./PHP/dbFunctions.php");
                   
@@ -118,7 +118,7 @@
                      <td><?= $row['Admin']?></td>
                      <?php 
                         $idUse = $row['id'];
-                        echo('<td><a href="SuppUser.php?id='.$idUse.'">Delete</a></td>'); 
+                        echo('<td><a href="SuppUser.php?id='.$idUse.'" style = "color: blue">Delete</a></td>'); 
                         ?>
                   </tr>
                   <?php
@@ -151,6 +151,9 @@
                      <td>
                         Stock
                      </td>
+                    <td>
+                        Delete product
+                     </td>
                   </tr>
                   <?php
                      foreach($Users as $row)
@@ -163,7 +166,7 @@
                      <td><?= $row['stock']?></td>
                      <?php 
                         $idUse = $row['id'];
-                        echo('<td><a href="SuppProduct.php?id='.$idUse.'">Delete</a></td>'); 
+                        echo('<td><a href="SuppProduct.php?id='.$idUse.'" style = "color: blue">Delete</a></td>'); 
                         ?>            
                   </tr>
                   <?php
