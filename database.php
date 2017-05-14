@@ -164,6 +164,7 @@
                      <td><?= $row['link']?></td>
                      <td><?= $row['price']?></td>
                      <td><?= $row['stock']?></td>
+                     <td><?= $row['Description']?></td>
                      <?php 
                         $idUse = $row['id'];
                         echo('<td><a href="SuppProduct.php?id='.$idUse.'" style = "color: blue">Delete</a></td>'); 

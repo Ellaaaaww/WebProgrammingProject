@@ -20,14 +20,15 @@
 
 
 
-    function insertProduct($name, $link, $price, $stock )
+    function insertProduct($name, $link, $price, $stock, $description )
     {
         $db = new PDO('mysql:host=localhost:3306;dbname=concordiaproject', 'root', '');
-        $stmt = $db->prepare("INSERT INTO `products`(`id`, `name`, `link`, `price`, `stock`) VALUES (NULL,:name,:link,:price,:stock)");
+        $stmt = $db->prepare("INSERT INTO `products`(`id`, `name`, `link`, `price`, `stock`, `Description`) VALUES (NULL,:name,:link,:price,:stock,:descri)");
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':link', $link);
         $stmt->bindParam(':price', $price);
         $stmt->bindParam(':stock', $stock);
+        $stmt->bindParam(':descri', $description);
         $stmt->execute();
     }
 
@@ -147,7 +148,7 @@
         `stock` int(11) NOT NULL,
         `Description` text NOT NULL,
         PRIMARY KEY (`id`)
-        ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1");
+        ) ENGINE=InnoDB  DEFAULT CHARSET=latin1");
         $stmt->execute();
         $stmt = $db->prepare('INSERT INTO `products`(`id`, `name`, `link`, `price`, `stock`, `Description`) VALUES (NULL,"ceylan_tea","CSS/theOne.jpg",15,100,"This is a stong aroma of ceylan tea")');
         $stmt->execute();
