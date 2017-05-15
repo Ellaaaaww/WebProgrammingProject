@@ -24,7 +24,7 @@ CREATE TABLE `products` (
  `stock` int(11) NOT NULL,
  `Description` text NOT NULL,
  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1
 
 -- script création table paniers
 
@@ -37,7 +37,16 @@ CREATE TABLE `baskets` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1
 
 
+-- script de création de la table intermédiaire
 
+
+CREATE TABLE `productinbasket` (
+ `idProductInBasket` int(11) NOT NULL AUTO_INCREMENT,
+ `IdProduct` int(11) NOT NULL,
+ `IdBasket` int(11) NOT NULL,
+ `Quantity` int(11) NOT NULL,
+ PRIMARY KEY (`idProductInBasket`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
 
 
 --Script d'insertion de donnee

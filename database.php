@@ -151,6 +151,9 @@
                      <td>
                         Stock
                      </td>
+                     <td>
+                        Description
+                     </td>
                     <td>
                         Delete product
                      </td>
