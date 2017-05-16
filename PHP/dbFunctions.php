@@ -1,5 +1,6 @@
 <?php
-
+    require_once("product.php");
+    require_once("tabProduct.php");
 
 
 
@@ -61,9 +62,16 @@
         $db = new PDO('mysql:host=localhost:3306;dbname=concordiaproject', 'root', '');
         $tabToReturn = array();
         $req = "SELECT * FROM PRODUCTS" ;
+  
         foreach($db->query($req) as $row)
         {
             array_push($tabToReturn, $row);
+            $newProduct = new product($row['id'], $row['name'], $row['link'], $row['price'], $row['stock'], $row['Description'] );
+            $newProduct->affiche();
+            $newProduct->ReadRecors(1);
+
+
+
         }
         return $tabToReturn;    
     }
