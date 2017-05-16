@@ -71,3 +71,9 @@ INSERT INTO `products`(`id`, `name`, `link`, `price`, `stock`, `Description`) VA
 
 INSERT INTO `baskets`(`id`, `idUser`, `price`, `payed`) VALUES (NULL,3,30,true);
 INSERT INTO `baskets`(`id`, `idUser`, `price`, `payed`) VALUES (NULL,3,45,false);
+
+
+--script d'insertion de product in basket 
+INSERT INTO `productinbasket`(`idProductInBasket`, `IdProduct`, `IdBasket`, `Quantity`) VALUES (NULL,1,1,1)
+INSERT INTO `productinbasket`(`idProductInBasket`, `IdProduct`, `IdBasket`, `Quantity`) VALUES (NULL,2,1,1)
+INSERT INTO `productinbasket`(`idProductInBasket`, `IdProduct`, `IdBasket`, `Quantity`) VALUES (NULL,1,2,3)

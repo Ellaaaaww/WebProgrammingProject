@@ -180,6 +180,26 @@
                <br />
                <?php
                   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                   
                   
                   function displayBaskets()
@@ -220,6 +240,47 @@
                   }
                   
                   
+
+
+                  function displayProductsInBasket()
+                  {
+                      $Users = getAllProductsInBasket();
+
+                      ?>
+               <table>
+                  <tr>
+                     <td>
+                        idProductInBasket
+                     </td>
+                     <td>
+                        IdProduct
+                     </td>
+                     <td>
+                        IdBasket
+                     </td>
+                     <td>
+                        Quantity
+                     </td>
+                  </tr>
+                  <?php
+                     foreach($Users as $row)
+                     {?>
+                  <tr>
+                     <td><?= $row['idProductInBasket']?></td>
+                     <td><?= $row['IdProduct']?></td>
+                     <td><?= $row['IdBasket']?></td>
+                     <td><?= $row['Quantity']?></td>
+                               
+                  </tr>
+                  <?php
+                     }
+                     ?>
+               </table>
+               <br />
+               <?php
+                  }
+
+
                   
                   
                   
@@ -232,6 +293,7 @@
                <a href="addTea.html"> Add a tea </a> <br /><br /><br />
                <?php
                   displayBaskets();
+                  displayProductsInBasket();
                   
                   
                   

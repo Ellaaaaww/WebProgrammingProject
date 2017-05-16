@@ -69,6 +69,25 @@
     }
 
 
+
+
+    function getAllProductsInBasket()
+    {
+        $db = new PDO('mysql:host=localhost:3306;dbname=concordiaproject', 'root', '');
+        $tabToReturn = array();
+        $req = "SELECT * FROM productinbasket" ;
+        foreach($db->query($req) as $row)
+        {
+            array_push($tabToReturn, $row);
+        }
+        return $tabToReturn;    
+    }
+
+
+
+
+
+
     function deleteProduct($idProduct)
     {
         $db = new PDO('mysql:host=localhost:3306;dbname=concordiaproject', 'root', '');
@@ -104,8 +123,8 @@
     {
         $db = new PDO('mysql:host=localhost:3306;dbname=concordiaproject', 'root', '');
         $stmt = $db->prepare("SELECT * FROM USERS WHERE ((Login = :log) and (Password = :ps))");
-        $stmt->binParam(':log', $log);
-        $stmt->binParam(':ps', $mdp);
+        $stmt->bindParam(':log', $log);
+        $stmt->bindParam(':ps', $mdp);
         $stmt->execute();
         return $stmt->fetch();
     }
@@ -175,6 +194,26 @@
         $stmt->execute();
 
         $stmt = $db->prepare('INSERT INTO `baskets`(`id`, `idUser`, `price`, `payed`) VALUES (NULL,3,45,false);');
+        $stmt->execute();
+
+
+        $stmt= $db->prepare("DROP TABLE productinbasket");
+        $stmt->execute();
+        $stmt =$db->prepare("CREATE TABLE `productinbasket` (
+        `idProductInBasket` int(11) NOT NULL AUTO_INCREMENT,
+        `IdProduct` int(11) NOT NULL,
+        `IdBasket` int(11) NOT NULL,
+        `Quantity` int(11) NOT NULL,
+        PRIMARY KEY (`idProductInBasket`)
+        ) ENGINE=InnoDB DEFAULT CHARSET=latin1"
+        );
+        $stmt->execute();
+        $stmt = $db->prepare('INSERT INTO `productinbasket`(`idProductInBasket`, `IdProduct`, `IdBasket`, `Quantity`) VALUES (NULL,1,1,1)');
+        $stmt->execute();
+        $stmt = $db->prepare('INSERT INTO `productinbasket`(`idProductInBasket`, `IdProduct`, `IdBasket`, `Quantity`) VALUES (NULL,2,1,1)');
+        $stmt->execute();
+
+        $stmt = $db->prepare('INSERT INTO `productinbasket`(`idProductInBasket`, `IdProduct`, `IdBasket`, `Quantity`) VALUES (NULL,1,2,3)');
         $stmt->execute();
 
     }
