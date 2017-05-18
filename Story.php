@@ -150,9 +150,9 @@
                   <div class = "col-md-4">
                      <h3 class = "footer">Find us</h3>
                      <br />
-                     <a href = "ShopLocation.html">Our shop</a>
+                     <a href = "ShopLocation.php">Our shop</a>
                      <br />
-                     <a href = "premium.html" >Premium resailer</a>
+                     <a href = "premium.php" >Premium resailer</a>
                   </div>
                   <div class = "col-md-4">
                      <h3 class = "footer">Social network</h3>
