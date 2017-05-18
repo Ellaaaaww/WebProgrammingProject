@@ -33,7 +33,7 @@
                 else
                 {
                     ?>
-                        <button type="button" class="btn btn-default " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="location.href='disconnected.php'"> Logout</button>
+                        <button type="button" class="btn btn-default " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="location.href='logout.php'"> Logout</button>
                     <?php
                 }
              ?>
@@ -76,7 +76,7 @@
                                      <li><a href="database.php"> Database Administration </a></li>
                                     <?php
                                 }
-                         
+
                             }
 
                             ?>
