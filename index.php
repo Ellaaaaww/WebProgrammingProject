@@ -122,7 +122,7 @@
                   <div class = "col-md-4">
                      <h3 class = "footer">The house</h3>
                      <br />
-                     <a href = "Story.html" >Story</a>
+                     <a href = "Story.php" >Story</a>
                      <br />
                      <a href="mailto:adresse@serveur.com">Contact us</a>
                   </div>
