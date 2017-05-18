@@ -66,10 +66,10 @@
         foreach($db->query($req) as $row)
         {
             array_push($tabToReturn, $row);
-            $newProduct = new product($row['id'], $row['name'], $row['link'], $row['price'], $row['stock'], $row['Description'] );
+          /*  $newProduct = new product($row['id'], $row['name'], $row['link'], $row['price'], $row['stock'], $row['Description'] );
             $newProduct->affiche();
             $newProduct->ReadRecors(1);
-
+*/
 
 
         }
@@ -130,11 +130,11 @@
     function connect($log, $mdp)
     {
         $db = new PDO('mysql:host=localhost:3306;dbname=concordiaproject', 'root', '');
-        $stmt = $db->prepare("SELECT * FROM USERS WHERE ((Login = :log) and (Password = :ps))");
-        $stmt->bindParam(':log', $log);
-        $stmt->bindParam(':ps', $mdp);
-        $stmt->execute();
-        return $stmt->fetch();
+        $stmt = $db->prepare("SELECT * FROM USERS WHERE ((Login = ?) and (Password = ?))");
+        //$stmt->bindParam(':log', $log);
+        //stmt->bindParam(':ps', $mdp);
+        $stmt->execute(array($log,$mdp));
+        return($stmt->fetchAll());
     }
 
 
