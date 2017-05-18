@@ -71,7 +71,7 @@ session_destroy();
                          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
                             <li class="collapse navbar-collapse"><a href="myAccount.html"> My Account<span class="sr-only">(current)</span></a></li>
-                            <li><a href="advices.html"> Advices </a></li>
+                            <li><a href="advices.php"> Advices </a></li>
                             <li><a href="listProduct.html"> Our products </a></li>
                             <?php
                              if (!empty($_SESSION['Surname']))

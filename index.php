@@ -65,7 +65,7 @@
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                            <ul class="nav navbar-nav">
                            <li class="collapse navbar-collapse"><a href="myAccount.html"> My Account<span class="sr-only">(current)</span></a></li>
-                           <li><a href="advices.html"> Advices </a></li>
+                           <li><a href="advices.php"> Advices </a></li>
                            <li><a href="listProduct.html"> Our products </a></li>
                            <?php
                             if (!empty($_SESSION['Surname']))
@@ -96,7 +96,7 @@
       <div class ="core">
          <div class="row">
             <div class="col-md-10 col-md-offset-1">
-               <a href = "Advices.html">
+               <a href = "Advices.php">
                   <img src ="CSS/advicesPicture.jpg" height="20%" width="80%" class = "menuPicture" alt = "CSS/pictureNotFound.jpg">
                   <h2 class = "titlePicture">Advices</h2>
                   <div class="textTitlePicture">The best way to drink tea</div>

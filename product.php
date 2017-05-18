@@ -26,7 +26,7 @@ class Product
 
   public afficher()
   {
-    return "id:" .this->id. "<br /> name:" .this->name. "<br /> price:" .this->price. "<br /> description:" .this->description. "<br /> stock:" .this->stock. "<br /> link:" .this->link.";
+    return "id:" .this->id. "<br /> name:" .this->name. "<br /> price:" .this->price. "<br /> description:" .this->description. "<br /> stock:" .this->stock. "<br /> link:" .this->link.;
   }
 
 
