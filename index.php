@@ -1,5 +1,6 @@
 <?php
     session_start();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -66,6 +67,19 @@
                            <li class="collapse navbar-collapse"><a href="myAccount.html"> My Account<span class="sr-only">(current)</span></a></li>
                            <li><a href="advices.html"> Advices </a></li>
                            <li><a href="listProduct.html"> Our products </a></li>
+                           <?php
+                            if (!empty($_SESSION['Surname']))
+                            {
+                                if (intVal($_SESSION['Admin']) == 1)
+                                {
+                                    ?>
+                                     <li><a href="database.php"> Database Administration </a></li>
+                                    <?php
+                                }
+                         
+                            }
+
+                            ?>
                         </div>
                      </div>
                      <!-- /.navbar-collapse -->
