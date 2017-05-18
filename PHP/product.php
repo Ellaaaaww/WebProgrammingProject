@@ -29,7 +29,7 @@ class product
         print("description : " .$this->_desc."<br />");
         print ("Here the end affiche function of a product <br />");
 
-        
+
     }
     public function __toString()
     {
@@ -37,15 +37,20 @@ class product
     }
     public function ReadRecors($id)
     {
-            
+
         $db = new PDO('mysql:host=localhost:3306;dbname=concordiaproject', 'root', '');
 
         $req = "SELECT * FROM PRODUCTS WHERE id = ".$id ;
         foreach($db->query($req) as $row)
         {
-            var_dump($row);
+            echo("Your recors is : ".$id);
+            print("His name is : ".$row["name"]."<br />");
+            print("His name is : ".$row["link"]."<br />");
+            print("His name is : ".$row["price"]."<br />");
+            print("His name is : ".$row["stock"]."<br />");
+            print("His name is : ".$row["Description"]."<br />");
         }
-        
+
     }
 
 }
