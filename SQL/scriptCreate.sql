@@ -62,9 +62,9 @@ INSERT INTO `users`(`id`, `Name`, `Surname`, `Phone`, `Login`, `Password`, `Emai
 
 -- Script d'insertion de donnees dans la table produits
 
-INSERT INTO `products`(`id`, `name`, `link`, `price`, `stock`, `Description`) VALUES (NULL,"ceylan_tea","CSS/theOne.jpg",15,100,"This is a stong aroma of ceylan tea")
-INSERT INTO `products`(`id`, `name`, `link`, `price`, `stock`, `Description`) VALUES (NULL,"white_tea","CSS/theTwo.jpg",15,100,"This is a light white tea")
-INSERT INTO `products`(`id`, `name`, `link`, `price`, `stock`, `Description`) VALUES (NULL,"jasmin_tea","CSS/theThree.jpg",15,100,"This is a stong jasmin tea")
+INSERT INTO `products`(`id`, `name`, `link`, `price`, `stock`, `Description`) VALUES (NULL,"Ceylan tea","CSS/theOne.jpg",15,100,"This is a stong aroma of ceylan tea")
+INSERT INTO `products`(`id`, `name`, `link`, `price`, `stock`, `Description`) VALUES (NULL,"White tea","CSS/theTwo.jpg",15,100,"This is a light white tea")
+INSERT INTO `products`(`id`, `name`, `link`, `price`, `stock`, `Description`) VALUES (NULL,"Jasmin tea","CSS/theThree.jpg",15,100,"This is a stong jasmin tea")
 
 
 --Script d'insertion du basket 

@@ -198,13 +198,13 @@
         PRIMARY KEY (`id`)
         ) ENGINE=InnoDB  DEFAULT CHARSET=latin1");
         $stmt->execute();
-        $stmt = $db->prepare('INSERT INTO `products`(`id`, `name`, `link`, `price`, `stock`, `Description`) VALUES (NULL,"ceylan_tea","CSS/theOne.jpg",15,100,"This is a stong aroma of ceylan tea")');
+        $stmt = $db->prepare('INSERT INTO `products`(`id`, `name`, `link`, `price`, `stock`, `Description`) VALUES (NULL,"Ceylan tea","CSS/theOne.jpg",15,100,"This is a stong aroma of ceylan tea")');
         $stmt->execute();
 
-        $stmt = $db->prepare('INSERT INTO `products`(`id`, `name`, `link`, `price`, `stock`, `Description`) VALUES (NULL,"white_tea","CSS/theTwo.jpg",15,100,"This is a light white tea")');
+        $stmt = $db->prepare('INSERT INTO `products`(`id`, `name`, `link`, `price`, `stock`, `Description`) VALUES (NULL,"White tea","CSS/theTwo.jpg",15,100,"This is a light white tea")');
         $stmt->execute();
 
-        $stmt = $db->prepare('INSERT INTO `products`(`id`, `name`, `link`, `price`, `stock`, `Description`) VALUES (NULL,"jasmin_tea","CSS/theThree.jpg",15,100,"This is a stong jasmin tea")');
+        $stmt = $db->prepare('INSERT INTO `products`(`id`, `name`, `link`, `price`, `stock`, `Description`) VALUES (NULL,"Jasmin tea","CSS/theThree.jpg",15,100,"This is a stong jasmin tea")');
         $stmt->execute();
         $stmt= $db->prepare("DROP TABLE baskets");
         $stmt->execute();
