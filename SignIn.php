@@ -4,8 +4,9 @@
     include ("PHP/dbFunctions.php");
 
     $isconnect = connect($_POST['Login'], $_POST['Password']);
+
     
-    if(empty($isconnect[0]['Name']))
+    if(empty($isconnect[0]['Name']) ||$isconnect == false )
     {
         include ("errorConnection.html");
     }

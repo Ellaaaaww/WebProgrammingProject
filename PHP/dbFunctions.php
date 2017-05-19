@@ -8,12 +8,15 @@
     function insertUser($name, $surname, $phone, $login, $pass, $email)
     {
         $db = new PDO('mysql:host=localhost:3306;dbname=concordiaproject', 'root', '');
-        $stmt = $db->prepare("INSERT INTO `users`(`id`, `Name`, `Surname`, `Phone`, `Login`, `Password`, `Email`, `Admin`) VALUES (NULL,:name,:surname,:phone,:log,:mdp,:email,false)");
+        $stmt = $db->prepare("INSERT INTO `users`(`id`, `Name`, `Surname`, `Phone`, `Login`, `Password`,`PasswordSalt`, `Email`, `Admin`) VALUES (NULL,:name,:surname,:phone,:log,:mdp,:sel,:email,false)");
+        $salt = mcrypt_create_iv(32, MCRYPT_DEV_URANDOM);
+        $encrypted_pw = crypt($pass,$salt);
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':surname', $surname);
         $stmt->bindParam(':phone', $phone);
         $stmt->bindParam(':log', $login);
-        $stmt->bindParam(':mdp', $pass);
+        $stmt->bindParam(':sel', $salt);
+        $stmt->bindParam(':mdp', $encrypted_pw);
         $stmt->bindParam(':email', $email);
         $stmt->execute();
     }
@@ -130,11 +133,23 @@
     function connect($log, $mdp)
     {
         $db = new PDO('mysql:host=localhost:3306;dbname=concordiaproject', 'root', '');
-        $stmt = $db->prepare("SELECT * FROM USERS WHERE ((Login = ?) and (Password = ?))");
-        //$stmt->bindParam(':log', $log);
-        //stmt->bindParam(':ps', $mdp);
-        $stmt->execute(array($log,$mdp));
+        $stmt = $db->prepare("SELECT * FROM USERS WHERE (Login = ?)");
+        $stmt->execute(array($log));
+        $toCheckPassword = $stmt->fetchAll();
+        if (empty($toCheckPassword))
+        {
+            return false;
+        }
+        else
+        {
+        $salt = $toCheckPassword[0]["PasswordSalt"];
+        
+        $encrypted_pw = crypt($mdp,$salt);
+        $stmt = $db->prepare("SELECT * FROM USERS WHERE (Login = ?) AND (Password = ?);");
+        $stmt->execute(array($log , $encrypted_pw));
         return($stmt->fetchAll());
+        }
+
     }
 
 
@@ -158,15 +173,15 @@
         $stmt->execute();
         $salt = mcrypt_create_iv(32, MCRYPT_DEV_URANDOM);
         $encrypted_pw = crypt("123",$salt);
-        $stmt = $db->prepare('INSERT INTO `users`(`id`, `Name`, `Surname`, `Phone`, `Login`, `Password`, `Email`, `Admin`) VALUES (NULL,"Ella","Witenberg","0600000000","EWit","'.$encrypted_pw.'","e.witten@teatime.com",true);');
+        $stmt = $db->prepare('INSERT INTO `users`(`id`, `Name`, `Surname`, `Phone`, `Login`, `Password`,`PasswordSalt`, `Email`, `Admin`) VALUES (NULL,"Ella","Witenberg","0600000000","EWit","'.$encrypted_pw.'","'.$salt.'","e.witten@teatime.com",true);');
         $stmt->execute();
         $salt = mcrypt_create_iv(32, MCRYPT_DEV_URANDOM);
         $encrypted_pw = crypt("456",$salt);
-        $stmt = $db->prepare('INSERT INTO `users`(`id`, `Name`, `Surname`, `Phone`, `Login`, `Password`, `Email`, `Admin`) VALUES (NULL,"Clement","Simon","0600000001","CSim","'.$encrypted_pw.'","c.sim@teatime.com",true);');
+        $stmt = $db->prepare('INSERT INTO `users`(`id`, `Name`, `Surname`, `Phone`, `Login`, `Password`,`PasswordSalt`, `Email`, `Admin`) VALUES (NULL,"Clement","Simon","0600000001","CSim","'.$encrypted_pw.'","'.$salt.'","c.sim@teatime.com",true);');
         $stmt->execute();
         $salt = mcrypt_create_iv(32, MCRYPT_DEV_URANDOM);
         $encrypted_pw = crypt("789",$salt);
-        $stmt = $db->prepare('INSERT INTO `users`(`id`, `Name`, `Surname`, `Phone`, `Login`, `Password`, `Email`, `Admin`) VALUES (NULL,"Jean","Onche","0600000002","J_onche","'.$encrypted_pw.'","jonche@jvc.com",false);');
+        $stmt = $db->prepare('INSERT INTO `users`(`id`, `Name`, `Surname`, `Phone`, `Login`, `Password`,`PasswordSalt`, `Email`, `Admin`) VALUES (NULL,"Jean","Onche","0600000002","J_onche","'.$encrypted_pw.'","'.$salt.'","jonche@jvc.com",false);');
         $stmt->execute();
 
         $stmt= $db->prepare("DROP TABLE PRODUCTS");
