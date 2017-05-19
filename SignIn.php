@@ -1,7 +1,8 @@
 <?php
         session_start();
 
-    include ("PHP/dbFunctions.php");
+    require_once ("PHP/dbFunctions.php");
+    require_once ("PHP/mail.php");
 
     $isconnect = connect($_POST['Login'], $_POST['Password']);
 
@@ -20,6 +21,8 @@
         $_SESSION['Password'] = $isconnect[0]['Password'];
         $_SESSION['Email'] = $isconnect[0]['Email'];
         $_SESSION['Admin'] = $isconnect[0]['Admin'];
+
+
         ?>
 
 

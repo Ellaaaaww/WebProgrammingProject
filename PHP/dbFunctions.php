@@ -136,18 +136,19 @@
         $stmt = $db->prepare("SELECT * FROM USERS WHERE (Login = ?)");
         $stmt->execute(array($log));
         $toCheckPassword = $stmt->fetchAll();
+        
         if (empty($toCheckPassword))
         {
             return false;
         }
         else
         {
-        $salt = $toCheckPassword[0]["PasswordSalt"];
-        
-        $encrypted_pw = crypt($mdp,$salt);
-        $stmt = $db->prepare("SELECT * FROM USERS WHERE (Login = ?) AND (Password = ?);");
-        $stmt->execute(array($log , $encrypted_pw));
-        return($stmt->fetchAll());
+            $salt = $toCheckPassword[0]["PasswordSalt"];
+            
+            $encrypted_pw = crypt($mdp,$salt);
+            $stmt = $db->prepare("SELECT * FROM USERS WHERE (Login = ?) AND (Password = ?);");
+            $stmt->execute(array($log , $encrypted_pw));
+            return($stmt->fetchAll());
         }
 
     }
