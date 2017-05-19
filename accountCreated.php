@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
 <html>
    <head>
@@ -17,9 +20,23 @@
       <header>
       <div class="row" >
          <div class="col-md-3 col-md-offset-9">
-            <button type="button" class="btn btn-default " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="location.href='SignIn.html'"> Sign in</button>
-            <button type="button" class="btn btn-default " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="location.href='SignUp.html'"> Sign up</button>
-            <a href="basket.html"><i class="fa fa-shopping-basket" aria-hidden="true" style = "color : yellow;"></i></a>
+             <?php
+                if (empty($_SESSION['Surname']))
+                {
+                    ?>
+                        <button type="button" class="btn btn-default " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="location.href='SignIn.html'"> Sign in</button>
+                        <button type="button" class="btn btn-default " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="location.href='SignUp.html'"> Sign up</button>
+                        <a href="basket.html"><i class="fa fa-shopping-basket" aria-hidden="true" style = "color : yellow;"></i></a>
+
+                    <?php
+                }
+                else
+                {
+                    ?>
+                        <button type="button" class="btn btn-default " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="location.href='logout.php'"> Logout</button>
+                    <?php
+                }
+             ?>
          </div>
       </div>
       <div class="row">
@@ -50,6 +67,19 @@
                            <li class="collapse navbar-collapse"><a href="myAccount.php"> My Account<span class="sr-only">(current)</span></a></li>
                            <li><a href="advices.php"> Advices </a></li>
                            <li><a href="listProduct.php"> Our products </a></li>
+                           <?php
+                            if (!empty($_SESSION['Surname']))
+                            {
+                                if (intVal($_SESSION['Admin']) == 1)
+                                {
+                                    ?>
+                                     <li><a href="database.php"> Database Administration </a></li>
+                                    <?php
+                                }
+
+                            }
+
+                            ?>
                         </div>
                      </div>
                      <!-- /.navbar-collapse -->

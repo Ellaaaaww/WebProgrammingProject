@@ -11,8 +11,8 @@
     {
         session_start();
         insertUser($_POST['Name'],$_POST['Surname'], $_POST['Phone'], $_POST['Login'], $_POST['Password'], $_POST['Email']);
-                $textEmail="Your Account has been created, your login is ".$_POST['Login'];
-    $isconnect = connect($_POST['Login'], $_POST['Password']);
+        $textEmail="Your Account has been created, your login is ".$_POST['Login'];
+        $isconnect = connect($_POST['Login'], $_POST['Password']);
 
         
         if(empty($isconnect[0]['Name']) ||$isconnect == false )
@@ -32,6 +32,6 @@
         }
 
         send_email($_POST['Email'],"Your Account",$textEmail);
-        include("accountCreated.html");
+        include("accountCreated.php");
     }
 ?>
