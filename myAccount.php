@@ -1,5 +1,6 @@
 <?php
     session_start();
+    require_once("PHP/dbFunctions.php");
 
  ?>
 
@@ -73,18 +74,14 @@
           <div class="container-fluid" style="color : white">
 
             <?php
-            if(empty($isconnect[0]['Name']) ||$isconnect == false )
-            {
-                print ("You are not connected");
-            }
-            else
-            {
+
+
             print("Login:" .$_SESSION['Login']. "<br />");
             print("Name:" .$_SESSION['Name']. "<br />");
             print("Surname:" .$_SESSION['Surname']. "<br />");
             print("Phone Number:" .$_SESSION['Phone']. "<br />");
-            print("Email:" .$_SESSION['email']. "<br />");
-            }
+            print("Email:" .$_SESSION['Email']. "<br />");
+
 
            ?>
 
