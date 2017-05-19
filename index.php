@@ -66,7 +66,7 @@
                            <ul class="nav navbar-nav">
                            <li class="collapse navbar-collapse"><a href="myAccount.php"> My Account<span class="sr-only">(current)</span></a></li>
                            <li><a href="advices.php"> Advices </a></li>
-                           <li><a href="listProduct.html"> Our products </a></li>
+                           <li><a href="listProduct.php"> Our products </a></li>
                            <?php
                             if (!empty($_SESSION['Surname']))
                             {
@@ -105,7 +105,7 @@
          </div>
          <div class="row">
             <div class="col-md-10 col-md-offset-1">
-               <a href = "listProduct.html">
+               <a href = "listProduct.php">
                   <img src ="CSS/productPicture.jpg" height="20%" width="80%" class="menuPicture" alt = "CSS/pictureNotFound.jpg">
                   <h2 class = "titlePicture">Our products</h2>
                   <div class="textTitlePicture">Find our tea and accessories for a perfect experience</div>

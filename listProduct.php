@@ -100,77 +100,28 @@
     </header>
       <!--End header-->
       <!--Begin Core -->
-      <div class="row">
+      <div class="row" style ="color : white;">
           <div class="container-fluid">
       <h1 class="namePage">Products</h1>
-
+     <br/>
       <?php
             $data = getAllProducts();
             foreach($data as $user)
             {
-                print('<div class ="row">');
-                    print('<div class="col-md-10 col-md-offset-2" style="color : white;">');
-                        var_dump($user);
-                    print('</div>>');
-                print('</div>');
+                ?>
+
+                        <h1 class="namePage"><?php echo($user['name']);?> </h1>
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-4">
+                        <?php print('<img src="'.$user['link'].'" alt="CSS/PictureNotFound.jpg">');?>
+                        <br />
+                        <?php print('Description : <br /> '.$user['Description']. '<br /> Price : ' .$user['price']. '<br />Stock : '.$user['stock']);?>
+                    </div>
+
+                </div>
+                <?php
             }
       ?>
-      <div class="col-md-10 col-md-offset-2">
-
-
-
-
-
-
-
-
-
-
-
-
-      <div class="row">
-         <div class="container-fluid" style="color : white">
-            <div class="col-md-4 col-md-offset-2">
-               <img src = "CSS/theOne.jpg" >
-               <label>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent dapibus elit vitae convallis lacinia. Sed eget tortor elementum nibh vulputate bibendum id luctus quam. Vestibulum at pellentesque quam. Sed pharetra augue sit amet ultrices lacinia. In metus lacus, pulvinar sit amet turpis mattis, tempus faucibus est. Praesent arcu sapien, porta vel elementum sodales, egestas a lorem.</label>
-               <div class="row">
-                  <div class="container-fluid">
-                     <button type="button" class="btn btn-default " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" > Add to basket</button>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <br />
-      <div class="row">
-      <div class="container-fluid" style="color : white">
-         <div class="col-md-4 col-md-offset-2">
-            <img src = "CSS/theTwo.jpg" >
-            <label>In nibh quam, laoreet vel efficitur at, feugiat vel nulla. Nullam quis dolor et velit interdum fringilla quis id ex. Aenean fringilla tellus vel semper ultricies. Morbi scelerisque massa odio, nec pulvinar tellus lobortis id. In in ex viverra, blandit augue ac, tempus libero. Quisque eu mauris at enim lobortis venenatis a pulvinar enim. Integer dictum suscipit lectus sed congue. </label>
-            <div class="row">
-               <div class="container-fluid">
-                  <button type="button" class="btn btn-default " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" > Add to basket</button>
-               </div>
-            </div>
-         </div>
-         </div>
-      </div>
-      <br />
-      <div class="row">
-         <div class="container-fluid" style="color : white">
-            <div class="col-md-4 col-md-offset-2">
-               <img src = "CSS/theThree.jpg" >
-               <label>Nulla molestie, nisl nec mollis mollis, dui dui mattis libero, vel vehicula erat ligula sit amet magna. Nullam fringilla quam a arcu fermentum ornare. Sed facilisis dignissim vulputate. Aenean sagittis tincidunt ipsum, id imperdiet mi ornare pulvinar. Sed sagittis, leo et convallis aliquet, quam ante dignissim justo, ut vehicula massa nisi mattis eros. </label>
-               <div class="row">
-                  <div class="container-fluid">
-                     <button type="button" class="btn btn-default " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" > Add to basket</button>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-            </div>
-            </div>
             </div>
       <!--End Core -->
       <!-- Begin footer -->

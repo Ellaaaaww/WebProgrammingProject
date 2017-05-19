@@ -70,9 +70,9 @@ session_destroy();
                          <!-- Collect the nav links, forms, and other content for toggling -->
                          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav">
-                            <li class="collapse navbar-collapse"><a href="myAccount.html"> My Account<span class="sr-only">(current)</span></a></li>
+                            <li class="collapse navbar-collapse"><a href="myAccount.php"> My Account<span class="sr-only">(current)</span></a></li>
                             <li><a href="advices.php"> Advices </a></li>
-                            <li><a href="listProduct.html"> Our products </a></li>
+                            <li><a href="listProduct.php"> Our products </a></li>
                             <?php
                              if (!empty($_SESSION['Surname']))
                              {
@@ -114,16 +114,16 @@ session_destroy();
                    <div class = "col-md-4">
                       <h3 class = "footer">The house</h3>
                       <br />
-                      <a href = "Story.html" >Story</a>
+                      <a href = "Story.php" >Story</a>
                       <br />
                       <a href="mailto:adresse@serveur.com">Contact us</a>
                    </div>
                    <div class = "col-md-4">
                       <h3 class = "footer">Find us</h3>
                       <br />
-                      <a href = "ShopLocation.html">Our shop</a>
+                      <a href = "ShopLocation.php">Our shop</a>
                       <br />
-                      <a href = "premium.html" >Premium resailer</a>
+                      <a href = "premium.php" >Premium resailer</a>
                    </div>
                    <div class = "col-md-4">
                       <h3 class = "footer">Social network</h3>

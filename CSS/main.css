@@ -6,7 +6,12 @@ label
 {
     color: white;
 }
-
+h3.nameProduct
+{
+    text-align: center;
+    color : white;
+    font-family: "Times New Roman", Times, serif;
+}
 h2.titlePicture
 {
     font-size: 100px;
