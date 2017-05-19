@@ -75,12 +75,18 @@
 
             <?php
 
+            if (empty($_SESSION["Name"]))
+            {
+                print("You are not connected");
+            }
+            else {
+              print("Login:" .$_SESSION['Login']. "<br />");
+              print("Name:" .$_SESSION['Name']. "<br />");
+              print("Surname:" .$_SESSION['Surname']. "<br />");
+              print("Phone Number:" .$_SESSION['Phone']. "<br />");
+              print("Email:" .$_SESSION['Email']. "<br />");
+            }
 
-            print("Login:" .$_SESSION['Login']. "<br />");
-            print("Name:" .$_SESSION['Name']. "<br />");
-            print("Surname:" .$_SESSION['Surname']. "<br />");
-            print("Phone Number:" .$_SESSION['Phone']. "<br />");
-            print("Email:" .$_SESSION['Email']. "<br />");
 
 
            ?>
