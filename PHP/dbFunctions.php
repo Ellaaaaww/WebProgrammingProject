@@ -10,13 +10,14 @@
         $db = new PDO('mysql:host=localhost:3306;dbname=concordiaproject', 'root', '');
         $stmt = $db->prepare("INSERT INTO `users`(`id`, `Name`, `Surname`, `Phone`, `Login`, `Password`,`PasswordSalt`, `Email`, `Admin`) VALUES (NULL,:name,:surname,:phone,:log,:mdp,:sel,:email,false)");
         $salt = mcrypt_create_iv(32, MCRYPT_DEV_URANDOM);
+        $pass = htmlspecialchars($pass);
         $encrypted_pw = crypt($pass,$salt);
         $stmt->bindParam(':name', htmlspecialchars($name));
         $stmt->bindParam(':surname', htmlspecialchars($surname));
         $stmt->bindParam(':phone', htmlspecialchars($phone));
         $stmt->bindParam(':log', htmlspecialchars($login));
-        $stmt->bindParam(':sel', htmlspecialchars($salt));
-        $stmt->bindParam(':mdp', htmlspecialchars($encrypted_pw));
+        $stmt->bindParam(':sel', $salt);
+        $stmt->bindParam(':mdp', $encrypted_pw);
         $stmt->bindParam(':email', htmlspecialchars($email));
         $stmt->execute();
     }
