@@ -1,7 +1,6 @@
 <?php
-  session_start();
+    session_start();
 ?>
-
 <!DOCTYPE html>
 <html>
    <head>
@@ -16,8 +15,8 @@
       <meta charset="utf-8">
    </head>
    <body>
-      <!--Begin header-->
-      <header>
+
+     <header>
       <div class="row" >
          <div class="col-md-3 col-md-offset-9">
              <?php
@@ -92,20 +91,36 @@
          </div>
       </div>
     </header>
-      <!--End header-->
-      <!--Begin core-->
-      <div class="row">
-        <h1 class="namePage">Premium sailer</h1>
-        <div class="row">
-            <div class="centerText">A premium resailer is situated at 777 boulevard Robert-Bourassa in Montréal</div>
-        </div>
-        <div class="row">
-            <div class="container-fluid">
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2796.508223761511!2d-73.56482178444138!3d45.4998469791014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc91a5c0d33edcd%3A0x6674a796c7a64b0b!2s777+Boulevard+Robert-Bourassa%2C+Montr%C3%A9al%2C+QC+H3C+3Z7!5e0!3m2!1sfr!2sca!4v1494193940486" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>            </div>
-        </div>
-      </div>
-      <!--End core-->
-      <!-- Begin footer -->
+          <h1 class="namePage">My basket</h1>
+
+          <div class="row">
+              <div class="container-fluid">
+              <div class="row">
+                  <div class="col-md-2 col-md-offset-4">
+                              <label>Ceylan tea</label><input type="text" class="form-control" placeholder="Number of ceylan tea" required="required" name = "teaOne">
+                  </div>
+              </div>
+                            <div class="row">
+                  <div class="col-md-2 col-md-offset-4">
+                              <label>Green tea</label><input type="text" class="form-control" placeholder="Number of green tea" required="required" name = "teaTwo">
+                  </div>
+              </div>
+                            <div class="row">
+                  <div class="col-md-2 col-md-offset-4">
+                              <label>Earl grey tea</label><input type="text" class="form-control" placeholder="Number of earl grey tea" required="required" name = "teaThree">
+                  </div>
+              </div>
+              <div class="row">
+              <div class="col-md-1 col-md-offset-7">
+                    <button type="button" class="btn btn-default " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="location.href='SignIn.php'">Pay basket</button>
+              </div>
+              </div>
+          </div>
+          </div>
+
+
+
+
       <footer>
          <div class = "footer">
             <div class = "row">
@@ -115,7 +130,7 @@
                      <br />
                      <a href = "Story.php" >Story</a>
                      <br />
-                     <a href="mailto:adresse@serveur.com">Contact us</a>
+                                          <a href="mailto:adresse@serveur.com">Contact us</a>Contact us</a>
                   </div>
                   <div class = "col-md-4">
                      <h3 class = "footer">Find us</h3>
