@@ -7,18 +7,33 @@
       <link rel="stylesheet" type="text/css" href ="CSS/main.css">
       <link rel ="icon" href="CSS/image_projet/newFavi.png">
       <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src = "Javascript/formcontrol.js"></script>
       <script type = "text/javascript" src = "Javascript/scriptTest.js"></script>
       <title> Tea Time</title>
       <meta charset="utf-8">
    </head>
    <body>
-      <!--Begin header-->
+        <!--Begin header-->
       <header>
       <div class="row" >
          <div class="col-md-3 col-md-offset-9">
-            <button type="button" class="btn btn-default " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="location.href='SignIn.html'"> Sign in</button>
-            <button type="button" class="btn btn-default " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="location.href='SignUp.html'"> Sign up</button>
+             <?php
+                if (empty($_SESSION['Surname']))
+                {
+                    ?>
+                        <button type="button" class="btn btn-default " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="location.href='SignIn.html'"> Sign in</button>
+                        <button type="button" class="btn btn-default " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="location.href='SignUp.html'"> Sign up</button>
+
+                    <?php
+                }
+                else
+                {
+                    ?>
+                        <button type="button" class="btn btn-default " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="location.href='logout.php'"> Logout</button>
+                        <a href="basket.php"><i class="fa fa-shopping-basket" aria-hidden="true" style = "color : yellow;"></i></a>
+
+                    <?php
+                }
+             ?>
          </div>
       </div>
       <div class="row">
@@ -49,6 +64,19 @@
                            <li class="collapse navbar-collapse"><a href="myAccount.php"> My Account<span class="sr-only">(current)</span></a></li>
                            <li><a href="advices.php"> Advices </a></li>
                            <li><a href="listProduct.php"> Our products </a></li>
+                           <?php
+                            if (!empty($_SESSION['Surname']))
+                            {
+                                if (intVal($_SESSION['Admin']) == 1)
+                                {
+                                    ?>
+                                     <li><a href="database.php"> Database Administration </a></li>
+                                    <?php
+                                }
+
+                            }
+
+                            ?>
                         </div>
                      </div>
                      <!-- /.navbar-collapse -->
@@ -60,71 +88,19 @@
          </div>
       </div>
     </header>
-      <!--End header-->      <!--Begin Core -->
-      <div class="row">
-         <h1 class="namePage">New User</h1>
-         <form name = "formSign" action = "SignUp.php" method = "POST">
-            <div class="row">
-               <div class="col-md-2 col-md-offset-5">
-                  <input type="text" class="form-control" placeholder="Name" required="required" name = "Name">
-               </div>
-            </div>
-            <br />
-            <div class="row">
-               <div class="col-md-2 col-md-offset-5">
-                  <input type="text" class="form-control" placeholder="Surname" required="required" name = "Surname">
-               </div>
-            </div>
-            <br />
-            <div class="row">
-               <div class="col-md-2 col-md-offset-5">
-                  <input type="text" class="form-control" placeholder="Phone number" required="required" name = "Phone">
-               </div>
-            </div>
-            <br />
-            <div class="row">
-               <div class="col-md-2 col-md-offset-5">
-                  <input type="text" class="form-control" placeholder="Login" required="required" name="Login">
-               </div>
-            </div>
-            <br />
-            <div class="row">
-               <div class="col-md-2 col-md-offset-5">
-                  <input type="password" class="form-control" placeholder="Enter your password" required="required" name="Password">
-               </div>
-            </div>
-            <br />
-            <div class="row">
-               <div class="col-md-2 col-md-offset-5">
-                  <input type="password" class="form-control" placeholder="Confirm password" required="required" name="ConfirmPassword">
-               </div>
-            </div>
-            <br />
-            <div class="row">
-               <div class="col-md-2 col-md-offset-5">
-                  <input type="email" class="form-control" placeholder="E-mail address" required="required" name = "Email">
-               </div>
-            </div>
-            <br />
-            <div class="row">
-               <div class="col-md-2 col-md-offset-5">
-                  <input type="text" class="form-control" placeholder="Address" required="required" name = "Address">
-               </div>
-            </div>
-            <br />
-            <div class="row">
-               <div class="col-md-2 col-md-offset-5">
-                  <input type="text" class="form-control" placeholder="Payment card" required="required" name = "Card">
-               </div>
-            </div>
-            <div class="row">
-               <div class="col-md-1 col-md-offset-5">
-                  <button type="submit" class="btn btn-default navbar-btn" onclick="CheckPassword(document.formSign.Password,document.formSign.ConfirmPassword)">Submit</button>
-               </div>
-            </div>
-         </form>
-      </div>
-      <!--End Core -->
+      <!--End header-->
+      <!--Begin core-->
+    <h1 class="namePage">Your command has been registered</h1>
+    <div class="row">
+    <div style="text-align: center; color : white">
+        It will be delivered in 3 days
+        <br />
+        You will pay <?php echo($price);?> $ at the sailer
+        <br />
+        <a href="index.php">Return index</a>
+    </div>
+    </div>
+      <!--End core-->
       <!-- Begin footer -->
       <footer>
          <div class = "footer">

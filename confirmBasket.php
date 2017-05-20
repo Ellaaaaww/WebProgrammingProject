@@ -22,7 +22,7 @@
             {
                 if($_POST[$i] > $product["stock"])
                 {
-                    include("errorStock.html");
+                    include("errorStock.php");
                     exit();
                 }
             }
@@ -37,12 +37,15 @@
             {
                 $price = $price + $product["price"] * $_POST[$i];
                 insertProductinBasket($product["id"],$idbasket, $_POST[$i]);
+                $newStock = $product["stock"] - $_POST[$i];
+                updateStock($newStock,$product["id"] );
             }
         }
     }
-    print($price);
-
-
+    updatePriceBasket($idbasket,$price);
+    updatePayed($idbasket);
+    createBasket($_SESSION['id']);
+    include("commandSuccess.php");
 
 
 ?>
