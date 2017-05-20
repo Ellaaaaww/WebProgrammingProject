@@ -25,6 +25,7 @@
 
 
 
+
     function insertProduct($name, $link, $price, $stock, $description )
     {
         $db = new PDO('mysql:host=localhost:3306;dbname=concordiaproject', 'root', '');
@@ -155,6 +156,21 @@
     }
 
 
+
+
+    function getUserCurrentBasket($idUser)
+    {
+
+        $db = new PDO('mysql:host=localhost:3306;dbname=concordiaproject', 'root', '');
+        $stmt = $db->prepare("SELECT BASKETS.IdUser, BASKETS.id FROM BASKETs , users WHERE( ( users.id = baskets.idUser ) and (baskets.payed = false) and (users.id = ?))");
+        $stmt->execute(array($idUser));
+        return ($stmt->fetchAll());
+        
+
+    }
+
+
+
     function resetdb()
     {
         $db = new PDO('mysql:host=localhost:3306;dbname=concordiaproject', 'root', '');
@@ -225,7 +241,10 @@
 
         $stmt = $db->prepare('INSERT INTO `baskets`(`id`, `idUser`, `price`, `payed`) VALUES (NULL,3,45,false);');
         $stmt->execute();
-
+        $stmt = $db->prepare('INSERT INTO `baskets`(`id`, `idUser`, `price`, `payed`) VALUES (NULL,1,0,false)');
+        $stmt->execute();
+        $stmt = $db->prepare('INSERT INTO `baskets`(`id`, `idUser`, `price`, `payed`) VALUES (NULL,2,0,false)');
+        $stmt->execute();
 
         $stmt= $db->prepare("DROP TABLE productinbasket");
         $stmt->execute();
@@ -245,6 +264,7 @@
 
         $stmt = $db->prepare('INSERT INTO `productinbasket`(`idProductInBasket`, `IdProduct`, `IdBasket`, `Quantity`) VALUES (NULL,1,2,3)');
         $stmt->execute();
+
 
     }
 
