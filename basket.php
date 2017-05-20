@@ -107,7 +107,7 @@
                             Name : <?php echo($product['name']." <br />");?>
                             Price : <?php echo($product['price']."$ <br />");?>
                             Stock : <?php echo($product['stock']." units left <br />");?>
-                            <input type="text" class="form-control" placeholder=<?php echo($product['name']); ?> id =<?php echo($product['id']);?> name =<?php echo($product['id']);?>>
+                            <input type="text" class="form-control" value ="0" required placeholder=<?php echo($product['name']); ?> id =<?php echo($product['id']);?> name =<?php echo($product['id']);?>>
                         </div>
                     </div>
                 </div>
@@ -119,7 +119,7 @@
           <div class="row">
               <div class="container-fluid">
                 <div class="col-md-2 col-md-offset-5">
-                    <input type="submit" class="form-control" placeholder=<?php echo($product['name']); ?> id =<?php echo($product['id']);?> name ="Login">
+                    <input type="submit" class="form-control" placeholder=<?php echo($product['name']); ?> id =<?php echo($product['id']);?> >
                 </div>
             </div>
           </div>

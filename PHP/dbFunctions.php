@@ -98,6 +98,19 @@
 
 
 
+    function insertProductinBasket($idProduct, $idBasket, $Quantity)
+    {
+        $db = new PDO('mysql:host=localhost:3306;dbname=concordiaproject', 'root', '');
+        $stmt = $db->prepare("INSERT INTO `productinbasket`(`idProductInBasket`, `IdProduct`, `IdBasket`, `Quantity`) VALUES (NULL,:idp,:idb,:q)");
+        $stmt->bindParam(':idp', htmlspecialchars($idProduct));
+        $stmt->bindParam(':idb', htmlspecialchars($idBasket));
+        $stmt->bindParam(':q', htmlspecialchars($Quantity));
+
+        $stmt->execute();
+    }
+
+
+
 
 
 
@@ -162,7 +175,7 @@
     {
 
         $db = new PDO('mysql:host=localhost:3306;dbname=concordiaproject', 'root', '');
-        $stmt = $db->prepare("SELECT BASKETS.IdUser, BASKETS.id FROM BASKETs , users WHERE( ( users.id = baskets.idUser ) and (baskets.payed = false) and (users.id = ?))");
+        $stmt = $db->prepare("SELECT BASKETS.IdUser as idUser, BASKETS.id as basketId FROM BASKETs , users WHERE( ( users.id = baskets.idUser ) and (baskets.payed = false) and (users.id = ?))");
         $stmt->execute(array($idUser));
         return ($stmt->fetchAll());
         
