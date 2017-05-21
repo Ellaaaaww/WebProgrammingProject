@@ -100,6 +100,8 @@
 
 
 
+
+
     function insertProductinBasket($idProduct, $idBasket, $Quantity)
     {
         $db = new PDO('mysql:host=localhost:3306;dbname=concordiaproject', 'root', '');
@@ -203,6 +205,14 @@
 
     }
 
+    function getStockProductById($idProduct)
+    {
+        $db = new PDO('mysql:host=localhost:3306;dbname=concordiaproject', 'root', '');
+        $tabToReturn = array();
+        $stmt = $db->prepare("SELECT stock from products WHERE id = ?");
+        $stmt->execute(array($idProduct));
+        return   ($stmt->fetchAll());
+    }
 
 
 

@@ -196,7 +196,7 @@
                         Delete product
                      </td>
                      <td>
-                        Update Stock
+                        Add Stock
                      </td>
                   </tr>
                   <?php
