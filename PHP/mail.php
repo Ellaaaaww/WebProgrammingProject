@@ -6,8 +6,8 @@
 
 require_once("PHPMailer/PHPMailerAutoload.php");
 
-function send_email($to, $subject, $body) 
-{ 
+function send_email($to, $subject, $body)
+{
 	global $error;
 	$mail = new PHPMailer();  // create a new object
 
@@ -17,27 +17,27 @@ function send_email($to, $subject, $body)
 	// - You will need to verify by sms your email to be able to
 	//   use Gmail's SMTP server
 	$from_name = "Your Name";
-	$mail->Username = "concordia.web.project.teatime@gmail.com";  
-	$mail->Password = "ConcordiaWeb";           
+	$mail->Username = "concordia.web.project.teatime@gmail.com";
+	$mail->Password = "ConcordiaWeb";
 
 	$mail->IsSMTP(); // enable SMTP
 	//$mail->SMTPDebug = 1;  // debugging: 1 = errors and messages, 2 = messages only
 	$mail->SMTPAuth = true;  // authentication enabled
 	$mail->SMTPSecure = 'ssl'; // secure transfer enabled REQUIRED for GMail
 	$mail->Host = 'smtp.gmail.com';
-	$mail->Port = 465; 
+	$mail->Port = 465;
 	$mail->SetFrom($mail->Username, $from_name);
 	$mail->Subject = $subject;
 	$mail->Body = $body;
 	$mail->AddAddress($to);
+	//$mail->isHTML(true);
 
-
-	if(!$mail->Send()) 
+	if(!$mail->Send())
 	{
-		//$error = 'Mail error: '.$mail->ErrorInfo; 
+		//$error = 'Mail error: '.$mail->ErrorInfo;
 		return false;
-	} 
-	else 
+	}
+	else
 	{
 		//$error = 'Message sent!';
 		return true;
