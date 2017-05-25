@@ -15,7 +15,7 @@
                <br />
                <a href = "ShopLocation.php">Our shop</a>
                <br />
-               <a href = "premium.php" >Premium resailer</a>
+               <a href = "premium.php" >Premium retailer</a>
             </div>
             <div class = "col-md-4">
                <h3 class = "footer">Social network</h3>
