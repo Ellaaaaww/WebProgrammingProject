@@ -1,4 +1,5 @@
 <?php include("header.php");
+  session_destroy();
  ?>
        <!--Begin core-->
          <h1 class="namePage"> You have been disconnected </h1>
