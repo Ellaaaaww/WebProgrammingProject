@@ -63,9 +63,12 @@
       <!--End header-->      <!--Begin Core -->
       <div class="row">
          <h1 class="namePage">New User</h1>
+         <!-- Action : le fichier que l'on appelle -->
+          <!-- Method = POST ou GET on preferera utiliser POST -->
          <form name = "formSign" action = "SignUp.php" method = "POST">
             <div class="row">
                <div class="col-md-2 col-md-offset-5">
+                 <!--une input a deux attributs importants, le type (permet de définir ce qu'il y a dedans), et le name (ce qui permet d'identifier le resultat de l'attribut dans le php)-->
                   <input type="text" class="form-control" placeholder="Name" required="required" name = "Name">
                </div>
             </div>

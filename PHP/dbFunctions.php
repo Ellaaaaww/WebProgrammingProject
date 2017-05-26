@@ -27,16 +27,27 @@
 
 
 
-
+    // Une fonction c'est au format : function [identifiant fonction] ([liste attributs])
     function insertProduct($name, $link, $price, $stock, $description )
     {
+        // On ouvre une connexion à la base de données. Sous la forme 
+            //mysql:host=localhost:3306; le port de connexion ( normalement à ne pas changer )
+            // dbname=concordiaproject le nom de la base de données de phpmyadmin
+            //l'identifiant (ici root)
+            // puis le mot de passe ('' pour xampp wamp, mais 'root' pour uwamp)
         $db = new PDO('mysql:host=localhost:3306;dbname=concordiaproject', 'root', '');
+        // Ensuite pour les requete d'insertion : on récupère la requete générée par phpmyadmin
+        // On enleve les attributs de l'insert, et on les remplace par des identifiants. ( sous la forme :nomIdentifiants)
+        // La personne qui ne met pas l'ID de la table à null dans l'insert je l'encule
         $stmt = $db->prepare("INSERT INTO `products`(`id`, `name`, `link`, `price`, `stock`, `Description`) VALUES (NULL,:name,:link,:price,:stock,:descri)");
+        // Puis on les remplace les paramètres avec le bindParam.
+        //on passe l'identifiants que nous avons mis dans la requete SQL, et on le remplace par la valeur qu'on veut lui passer
         $stmt->bindParam(':name', $name);
         $stmt->bindParam(':link', $link);
         $stmt->bindParam(':price', $price);
         $stmt->bindParam(':stock', $stock);
         $stmt->bindParam(':descri', $description);
+        // Puis on execute la requete.
         $stmt->execute();
     }
 
@@ -117,6 +128,7 @@
     function updatePriceBasket($idbasket, $price)
     {
         $db = new PDO('mysql:host=localhost:3306;dbname=concordiaproject', 'root', '');
+        
         $stmt = $db->prepare("UPDATE `baskets` SET `price`=:price WHERE baskets.id = :id");
         $stmt->bindParam(':price', htmlspecialchars($price));
         $stmt->bindParam(':id', htmlspecialchars($idbasket));
@@ -209,7 +221,9 @@
     {
         $db = new PDO('mysql:host=localhost:3306;dbname=concordiaproject', 'root', '');
         $tabToReturn = array();
+        // Pour les requetes select, on remplace les parametres par des ?
         $stmt = $db->prepare("SELECT stock from products WHERE id = ?");
+        // puis on fait executer la requete en lui passant un tableau avec tous les parametre CF Connect
         $stmt->execute(array($idProduct));
         return   ($stmt->fetchAll());
     }
