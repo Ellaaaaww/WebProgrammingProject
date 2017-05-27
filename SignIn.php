@@ -1,5 +1,4 @@
 <?php
-        session_start();
 
     require_once ("PHP/dbFunctions.php");
     require_once ("PHP/mail.php");
@@ -12,18 +11,9 @@
         include ("errorConnection.html");
     }
     else
-    {
-        $_SESSION['id'] = $isconnect[0]['id'];
-        $_SESSION['Name'] = $isconnect[0]['Name'];
-        $_SESSION['Surname'] = $isconnect[0]['Surname'];
-        $_SESSION['Phone'] = $isconnect[0]['Phone'];
-        $_SESSION['Login'] = $isconnect[0]['Login'];
-        $_SESSION['Password'] = $isconnect[0]['Password'];
-        $_SESSION['Email'] = $isconnect[0]['Email'];
-        $_SESSION['Admin'] = $isconnect[0]['Admin'];
+    {    ?>
 
 
-        ?>
 
 
         <!DOCTYPE html>
@@ -91,6 +81,16 @@
 
 
         <?php
+        $_SESSION['id'] = $isconnect[0]['id'];
+        $_SESSION['Name'] = $isconnect[0]['Name'];
+        $_SESSION['Surname'] = $isconnect[0]['Surname'];
+        $_SESSION['Phone'] = $isconnect[0]['Phone'];
+        $_SESSION['Login'] = $isconnect[0]['Login'];
+        $_SESSION['Password'] = $isconnect[0]['Password'];
+        $_SESSION['Email'] = $isconnect[0]['Email'];
+        $_SESSION['Admin'] = $isconnect[0]['Admin'];
 
+
+       
     }
 ?>
