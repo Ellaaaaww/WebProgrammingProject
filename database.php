@@ -12,7 +12,7 @@
               <div class="row">
          <div class="container-fluid">
             <h1 class="namePage">DB Admin</h1>
-            <div class="col-md-6 col-md-offset-3" style="background-color : white;">
+            <div class="col-md-6 col-md-offset-3" style="background-color : #303030; color : dodgerblue">
                <?php
                   include("./PHP/dbFunctions.php");
 
