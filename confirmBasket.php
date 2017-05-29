@@ -8,7 +8,6 @@
     }
     
     $CurrentBasketData = getUserCurrentBasket(intval($_SESSION['id']));
-
     $idbasket = $CurrentBasketData[0]["basketId"];
 
     $tabProducts = getAllProducts();

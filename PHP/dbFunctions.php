@@ -146,7 +146,7 @@
     function updatePayed($idbasket)
     {
         $db = new PDO('mysql:host=localhost:3306;dbname=concordiaproject', 'root', '');
-        $stmt = $db->prepare("UPDATE `baskets` SET `payes`=1 WHERE baskets.id = :id");
+        $stmt = $db->prepare("UPDATE `baskets` SET `payed`=1 WHERE baskets.id = :id");
         $stmt->bindParam(':id', htmlspecialchars($idbasket));
         $stmt->execute();
     }
